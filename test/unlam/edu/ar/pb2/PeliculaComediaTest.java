@@ -11,17 +11,17 @@ class PeliculaComediaTest {
 
 	@BeforeEach
 	void setUp(){
-		peli1 = new PeliculaComedia("Jhon Wick", 120, 13);
+		peli1 = new PeliculaComedia("La Máscara", 120, 7);
 	}
 
 	@Test
-	void queSePuedaCrearUnaPeliDeAccionCorrectamente() {
+	void queSePuedaCrearUnaPeliDeComediaCorrectamente() {
 		assertNotNull(peli1);
 	}
 	
 	@Test
 	void queSePuedaObtenerElTituloDeLaPelicula() {
-		assertEquals(peli1.getTitulo(), "Jhon Wick");
+		assertEquals(peli1.getTitulo(), "La Máscara");
 	}
 
 	@Test
@@ -31,7 +31,7 @@ class PeliculaComediaTest {
 	
 	@Test
 	void queSePuedaObtenerLaEdadMinimaParaVerLaPelicula() {
-		assertEquals(peli1.getEdadMinima(), 13);
+		assertEquals(peli1.getEdadMinima(), 7);
 	}
 
 }
