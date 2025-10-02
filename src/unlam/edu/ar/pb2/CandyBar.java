@@ -24,7 +24,7 @@ public class CandyBar {
 
 	public boolean eliminarProducto(String nombre) {
 		for(int i=0; i<this.productos.length; i++) {
-			if(this.productos[i]!=null && this.productos[i].getNombre().equals(nombre)) {
+			if(this.productos[i]!=null && this.productos[i].getNombre().equalsIgnoreCase(nombre)) {
 				this.productos[i]=null;
 				return true;
 			}
