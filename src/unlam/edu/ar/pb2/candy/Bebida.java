@@ -3,12 +3,10 @@ package unlam.edu.ar.pb2.candy;
 public class Bebida extends Producto{
 	
 	private Contenedor contenedor;
-	private double precioBase;
 
-	public Bebida(String nombre, double precioBase, Contenedor contenedor, int stock) {
-		super(nombre, stock);
+	public Bebida(String nombre, Double precioBase, Contenedor contenedor, int stock) {
+		super(nombre, stock, precioBase);
 		this.contenedor = contenedor;
-		this.precioBase = precioBase;
 	}
 
 	@Override
@@ -17,15 +15,11 @@ public class Bebida extends Producto{
 		double precioFinal = 0.0;
 		
 		if(this.contenedor == Contenedor.VASO) {
-			precioFinal = this.precioBase;
+			precioFinal = super.precioBase;
 		} else if(this.contenedor == Contenedor.BOTELLA) {
-			precioFinal = this.precioBase + ((this.precioBase*10)/100);
+			precioFinal = super.precioBase + ((super.precioBase*10)/100);
 		} 
 		return precioFinal;
-	}
-
-	public double getPrecioBase() {
-		return precioBase;
 	}
 	
 	

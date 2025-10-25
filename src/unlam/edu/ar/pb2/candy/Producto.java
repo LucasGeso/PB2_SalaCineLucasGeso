@@ -6,16 +6,22 @@ public abstract class Producto {
 	
 	protected String nombre;
 	protected int stock;
+	protected double precioBase;
 	
-	public Producto(String nombre, int stock) {
+	public Producto(String nombre, int stock, double precioBase) {
 		this.nombre = nombre;
 		this.stock = stock;
+		this.precioBase = precioBase;
 	}
 	
 	protected abstract double calcularPrecioFinal();
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public double getPrecioBase() {
+		return precioBase;
 	}
 
 	@Override

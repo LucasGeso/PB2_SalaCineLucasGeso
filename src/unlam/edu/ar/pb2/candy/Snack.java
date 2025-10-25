@@ -3,10 +3,9 @@ package unlam.edu.ar.pb2.candy;
 public class Snack extends Producto{
 	
 	private Tamano tamano;
-	private double precioBase;
 
 	public Snack(String nombre, double precioBase, Tamano tamano, int stock) {
-		super(nombre, stock);
+		super(nombre, stock, precioBase);
 		this.tamano = tamano;
 		this.precioBase = precioBase;
 	}
@@ -16,17 +15,13 @@ public class Snack extends Producto{
 		double precioFinal = 0.0;
 		
 		if(this.tamano==Tamano.PEQUENO) {
-			precioFinal = this.precioBase - ((this.precioBase*15)/100);
+			precioFinal = super.precioBase - ((super.precioBase*15)/100);
 		} else if(this.tamano==Tamano.MEDIANO) {
-			precioFinal = this.precioBase;
+			precioFinal = super.precioBase;
 		} else {
-			precioFinal = this.precioBase + ((this.precioBase*20)/100);
+			precioFinal = super.precioBase + ((super.precioBase*20)/100);
 		}
 		return precioFinal;
-	}
-
-	public double getPrecioBase() {
-		return precioBase;
 	}
 	
 	
