@@ -4,15 +4,15 @@ public class Snack extends Producto{
 	
 	private Tamano tamano;
 
-	public Snack(String nombre, double precioBase, Tamano tamano, int stock) {
+	public Snack(String nombre, Double precioBase, Tamano tamano, Integer stock) {
 		super(nombre, stock, precioBase);
 		this.tamano = tamano;
 		this.precioBase = precioBase;
 	}
 
 	@Override
-	protected double calcularPrecioFinal() {
-		double precioFinal = 0.0;
+	protected Double calcularPrecioFinal() {
+		Double precioFinal = 0.0;
 		
 		if(this.tamano==Tamano.PEQUENO) {
 			precioFinal = super.precioBase - ((super.precioBase*15)/100);
@@ -23,7 +23,4 @@ public class Snack extends Producto{
 		}
 		return precioFinal;
 	}
-	
-	
-
 }

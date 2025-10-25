@@ -4,15 +4,15 @@ public class Bebida extends Producto{
 	
 	private Contenedor contenedor;
 
-	public Bebida(String nombre, Double precioBase, Contenedor contenedor, int stock) {
+	public Bebida(String nombre, Double precioBase, Contenedor contenedor, Integer stock) {
 		super(nombre, stock, precioBase);
 		this.contenedor = contenedor;
 	}
 
 	@Override
-	protected double calcularPrecioFinal() {
+	protected Double calcularPrecioFinal() {
 		
-		double precioFinal = 0.0;
+		Double precioFinal = 0.0;
 		
 		if(this.contenedor == Contenedor.VASO) {
 			precioFinal = super.precioBase;
@@ -21,7 +21,4 @@ public class Bebida extends Producto{
 		} 
 		return precioFinal;
 	}
-	
-	
-
 }

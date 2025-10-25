@@ -1,35 +1,72 @@
 package unlam.edu.ar.pb2.candy;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.TreeSet;
+
 public class CandyBar {
 	
-	private Producto[] productos;
+	private TreeSet<Producto> productos;
+	private Integer cantidadDeProductosMaxima;
 	
-	public CandyBar(int cantidad) {
-		this.productos = new Producto[cantidad];
+	public CandyBar(Integer cantidad) {
+		this.productos = new TreeSet<Producto>();
+		this.cantidadDeProductosMaxima = cantidad;
 	}
 	
-	public boolean agregarProducto(Producto nuevo) {
-		for(int i=0; i<this.productos.length; i++) {
-			if(this.productos[i]==null) {
-				this.productos[i]=nuevo;
-				return true;
-			}
+	public Boolean agregarProducto(Producto nuevo) {
+		Boolean respuesta = false;
+		if(this.productos.size()<cantidadDeProductosMaxima) {
+			respuesta = this.productos.add(nuevo);
 		}
-		return false;
+
+			return respuesta;
+	}
+	
+	public Boolean eliminarProducto(String nombre) {
+		return this.productos.removeIf(p -> p.getNombre().equalsIgnoreCase(nombre));
 	}
 
-	public Producto[] obtenerInventario() {
+	public TreeSet<Producto> obtenerInventario() {
 		return this.productos;
 	}
 
-	public boolean eliminarProducto(String nombre) {
-		for(int i=0; i<this.productos.length; i++) {
-			if(this.productos[i]!=null && this.productos[i].getNombre().equalsIgnoreCase(nombre)) {
-				this.productos[i]=null;
-				return true;
+	public ArrayList<Producto> mostrarLasBebidas(){
+		ArrayList<Producto> bebidas = new ArrayList<Producto>();
+		for(Producto p : this.productos) {
+			if(p instanceof Bebida) {
+				bebidas.add(p);
 			}
 		}
-		return false;
+		Collections.sort(bebidas, new OrdenarPorPrecioBase());
+		
+		return bebidas;
+	}
+	
+	public ArrayList<Producto> mostrarLosSnacks(){
+		ArrayList<Producto> snacks = new ArrayList<Producto>();
+		for(Producto p : this.productos) {
+			if(p instanceof Snack) {
+				snacks.add(p);
+			}
+		}
+		Collections.sort(snacks, new OrdenarPorNombre());
+		return snacks;
 	}
 
 }
+
+/*Boolean resultado = false;
+for(Producto lista : this.productos){
+	if(lista.getNombre().equalsIgnoreCase(nombre)) {
+		resultado = this.productos.remove(lista);
+	} 
+}
+for(int i=0; i<this.productos.length; i++) {
+	if(this.productos[i]!=null && this.productos[i].getNombre().equalsIgnoreCase(nombre)) {
+		this.productos[i]=null;
+		return true;
+	}
+}
+return false;
+return resultado;*/

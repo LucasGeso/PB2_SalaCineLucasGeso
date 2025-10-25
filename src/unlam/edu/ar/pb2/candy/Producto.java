@@ -1,43 +1,34 @@
 package unlam.edu.ar.pb2.candy;
 
-import java.util.Objects;
-
-public abstract class Producto {
+public abstract class Producto implements Comparable<Producto>{
 	
 	protected String nombre;
-	protected int stock;
-	protected double precioBase;
+	protected Integer stock;
+	protected Double precioBase;
 	
-	public Producto(String nombre, int stock, double precioBase) {
+	public Producto(String nombre, Integer stock, Double precioBase) {
 		this.nombre = nombre;
 		this.stock = stock;
 		this.precioBase = precioBase;
 	}
 	
-	protected abstract double calcularPrecioFinal();
+	protected abstract Double calcularPrecioFinal();
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public double getPrecioBase() {
+	public Double getPrecioBase() {
 		return precioBase;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(nombre);
+	
+	public Integer getStock() {
+		return stock;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Producto other = (Producto) obj;
-		return Objects.equals(nombre, other.nombre);
+	public int compareTo(Producto o) {
+		return this.stock.compareTo(o.stock);
 	}
+	
 }
