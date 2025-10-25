@@ -1,4 +1,4 @@
-package unlam.edu.ar.pb2;
+package unlam.edu.ar.pb2.candy;
 
 import java.util.Objects;
 

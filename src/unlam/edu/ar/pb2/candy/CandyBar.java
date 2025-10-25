@@ -1,4 +1,4 @@
-package unlam.edu.ar.pb2;
+package unlam.edu.ar.pb2.candy;
 
 public class CandyBar {
 	
