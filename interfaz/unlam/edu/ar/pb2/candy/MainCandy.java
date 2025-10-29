@@ -113,19 +113,24 @@ public class MainCandy {
 		String nombre = teclado.next();
 		System.out.println("Ingrese su precio unitario: ");
 		Double precio = teclado.nextDouble();
-		System.out.println("Elija el tamaño: ");
-		System.out.println("1 - Pequeño");
-		System.out.println("2 - Mediano");
-		System.out.println("3 - Grande");
-		int opcionTamano = teclado.nextInt();
-		Tamano tamanoSnack;
-		if(opcionTamano == 1 ) {
-			tamanoSnack = Tamano.PEQUENO;
-		} else if(opcionTamano == 2) {
-			tamanoSnack = Tamano.MEDIANO;
-		} else {
-			tamanoSnack = Tamano.GRANDE;
-		}
+		int opcionTamano;
+		Tamano tamanoSnack = null;
+		do {
+			System.out.println("Elija el tamaño: ");
+			System.out.println("1 - Pequeño");
+			System.out.println("2 - Mediano");
+			System.out.println("3 - Grande");
+			opcionTamano = teclado.nextInt();
+			if(opcionTamano == 1 ) {
+				tamanoSnack = Tamano.PEQUENO;
+			} else if(opcionTamano == 2) {
+				tamanoSnack = Tamano.MEDIANO;
+			} else if(opcionTamano == 3){
+				tamanoSnack = Tamano.GRANDE;
+			} else {
+				System.out.println("Opción incorrecta, vuelva a intentar: ");
+			}
+		}while(opcionTamano<1 || opcionTamano>3);
 		
 		System.out.println("Ingrese el stock: ");
 		int stock = teclado.nextInt();
@@ -138,16 +143,22 @@ public class MainCandy {
 		String nombre = teclado.next();
 		System.out.println("Ingrese su precio unitario: ");
 		Double precio = teclado.nextDouble();
+		int opcionContenedor;
+		Contenedor contenedorBebida = null;
+		do {
 		System.out.println("Elija el contenedor: ");
 		System.out.println("1 - Vaso");
 		System.out.println("2 - Botella");
-		int ocpionContenedor = teclado.nextInt();
-		Contenedor contenedorBebida = null;
-		if(ocpionContenedor == 1 ) {
-			contenedorBebida = Contenedor.VASO;
-		} else if(ocpionContenedor == 2) {
-			contenedorBebida = Contenedor.BOTELLA;
-		} 
+		opcionContenedor = teclado.nextInt();
+			if(opcionContenedor == 1 ) {
+				contenedorBebida = Contenedor.VASO;
+			} else if(opcionContenedor == 2) {
+				contenedorBebida = Contenedor.BOTELLA;
+			} else {
+				System.out.println("Opcion incorrecta, vuelva a intentarlo: ");
+			}
+		}while(opcionContenedor!=1 && opcionContenedor!=2);
+		
 		System.out.println("Ingrese el stock: ");
 		int stock = teclado.nextInt();
 		Producto nuevo = new Bebida(nombre, precio, contenedorBebida, stock);
