@@ -73,7 +73,7 @@ public class MainCandy {
 		String nombre = teclado.next();
 		try {
 			candy.eliminarProducto(nombre);
-			System.out.println("El producto" + nombre + "se eliminó correctamente");
+			System.out.println("El producto " + nombre + " se eliminó correctamente");
 		} catch(ProductoNoEncontradoException e ) {
 			System.out.println(e.getMessage());
 		}
