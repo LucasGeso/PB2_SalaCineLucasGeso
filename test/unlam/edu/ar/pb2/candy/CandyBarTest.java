@@ -25,18 +25,23 @@ public class CandyBarTest {
     }
 
     @Test
-    public void testAgregarProducto() {
+    public void testAgregarProducto() throws ProductoDuplicadoExeption {
         assertTrue(candyBar.agregarProducto(palomitas));
         assertEquals(1, contarProductosEnInventario());
 
         assertTrue(candyBar.agregarProducto(refresco));
         assertEquals(2, contarProductosEnInventario());
-
     }
     
+    @Test(expected = ProductoDuplicadoExeption.class)
+    public void testNoAgregarProductosRepetidos() throws ProductoDuplicadoExeption {
+    	candyBar.agregarProducto(palomitas);
+    	candyBar.agregarProducto(palomitas);
+    	  assertEquals(1, contarProductosEnInventario());
+    }
 
     @Test
-    public void testEliminarProductoExistente() {
+    public void testEliminarProductoExistente() throws ProductoDuplicadoExeption, ProductoNoEncontradoException {
         candyBar.agregarProducto(palomitas);
         candyBar.agregarProducto(refresco);
 
@@ -46,17 +51,17 @@ public class CandyBarTest {
         /*assertNull(candyBar.obtenerInventario()[0]);*/
     }
 
-    @Test
-    public void testEliminarProductoNoExistente() {
+    @Test(expected = ProductoNoEncontradoException.class)
+    public void testEliminarProductoNoExistente() throws ProductoDuplicadoExeption, ProductoNoEncontradoException {
         candyBar.agregarProducto(palomitas);
-
-        Boolean eliminado = candyBar.eliminarProducto("Chocolate");
-        assertFalse(eliminado);
+        candyBar.eliminarProducto("Chocolate");
         assertEquals(1, contarProductosEnInventario());
+        /*Boolean eliminado = candyBar.eliminarProducto("Chocolate");
+        assertFalse(eliminado);*/
     }
 
     @Test
-    public void testInventarioLleno() {
+    public void testInventarioLleno() throws ProductoDuplicadoExeption {
     	
         // Llenar el inventario hasta su capacidad
     	//APLICO DIFERENTE STOCK POR EL ORDEN NATURAL QUE SE ASIGNO
@@ -72,7 +77,7 @@ public class CandyBarTest {
     }
     
     @Test
-    public void queSoloSePuedanVerLasBebidas() {
+    public void queSoloSePuedanVerLasBebidas() throws ProductoDuplicadoExeption {
         candyBar.agregarProducto(palomitas);
         candyBar.agregarProducto(refresco);
         candyBar.agregarProducto(agua);
@@ -87,7 +92,7 @@ public class CandyBarTest {
     }
     
     @Test
-    public void queSoloSePuedanVerLosSnacks() {
+    public void queSoloSePuedanVerLosSnacks() throws ProductoDuplicadoExeption {
         candyBar.agregarProducto(palomitas);
         candyBar.agregarProducto(refresco);
         candyBar.agregarProducto(agua);

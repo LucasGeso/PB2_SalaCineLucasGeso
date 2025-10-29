@@ -1,6 +1,8 @@
 package unlam.edu.ar.pb2;
 
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
@@ -154,7 +156,7 @@ public class Main {
 	    }
 	    
 	    private static void mostrarButacas(SalaCine sala) {
-	    	Asiento[][] butacas = sala.getButacas();
+	    	TreeMap<String, Asiento> butacas = sala.getButacas();
 	    	
 	    	System.out.println("\n=== ESTADO DE LA SALA ===");
 	        if (sala.getPeliculaActual() != null) {
@@ -162,7 +164,15 @@ public class Main {
 	        }
 	        System.out.println("📊 Ocupación: " + sala.contarAsientosOcupados() + "/" + sala.getTotalAsientos() + " asientos");
 	        System.out.print("   ");
-	        for (int j = 0; j < butacas[0].length; j++) {
+	        for(Map.Entry<String, Asiento> asientos : butacas.entrySet()) {
+	        	if(asientos.getValue().estaOcupado()) {
+	        		System.out.println(asientos.getKey() + " X \n" );
+	        	} else {
+	        		System.out.println(asientos.getKey() + " O \n" );
+	        	}
+	        }
+	        
+	       /* for (int j = 0; j < butacas[0].length; j++) {
 	            System.out.printf("%3d", j);
 	        }
 	        System.out.println();
@@ -174,7 +184,7 @@ public class Main {
 	                System.out.printf("%3c", estado);
 	            }
 	            System.out.println();
-	        }
+	        }*/
 	        System.out.println("O = Libre, X = Ocupado\n");
 			
 		}
@@ -198,7 +208,8 @@ public class Main {
 	        String nombreComprador = scanner.nextLine();
 	        
 	        System.out.print("Ingrese la fila del asiento: ");
-	        int fila = scanner.nextInt();
+	        /*int fila = scanner.nextInt();*/
+	        String fila = scanner.next();
 	        System.out.print("Ingrese la columna del asiento: ");
 	        int columna = scanner.nextInt();
 	        System.out.print("Ingrese la edad del cliente: ");
@@ -219,7 +230,8 @@ public class Main {
 	        mostrarButacas(sala);
 	        
 	        System.out.print("Ingrese la fila del asiento a liberar: ");
-	        int fila = scanner.nextInt();
+	        /*int fila = scanner.nextInt();*/
+	        String fila = scanner.next();
 	        System.out.print("Ingrese la columna del asiento a liberar: ");
 	        int columna = scanner.nextInt();
 	        
@@ -254,14 +266,21 @@ public class Main {
 	    }
 	    
 	    private static void mostrarButacasDetalle(SalaCine sala) {
-	    	Asiento[][] butacas = sala.getButacas();
+	    	TreeMap<String, Asiento> butacas = sala.getButacas();
+	    	for(Map.Entry<String, Asiento> asiento : butacas.entrySet()) {
+	    		if(asiento.getValue().estaOcupado()) {
+	    			System.out.println("Fila: " + asiento.getKey().charAt(0) + "\nNro: " + asiento.getKey().charAt(1) + "\nNombre: " + asiento.getValue().getNombreComprador() + "\n");
+	    		}
+	    	}
+	    	
+	    	/*Asiento[][] butacas = sala.getButacas();
 	    	for(int i=0;i<butacas.length;i++) {
 	    		for(int j=0;j<butacas[i].length;j++) {
 	    			if(butacas[i][j].estaOcupado()) {
 	    				System.out.println("Fila: "+ i + " Columna: " + j +" - Nombre: " + butacas[i][j].getNombreComprador() + "\n");
 	    			} 
 	    		}
-	    	}
+	    	}*/
 	    	
 	    }
 	    

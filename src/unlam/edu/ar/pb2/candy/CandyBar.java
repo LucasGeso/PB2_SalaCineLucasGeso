@@ -14,18 +14,27 @@ public class CandyBar {
 		this.cantidadDeProductosMaxima = cantidad;
 	}
 	
-	public Boolean agregarProducto(Producto nuevo) {
+	public Boolean agregarProducto(Producto nuevo) throws ProductoDuplicadoExeption{
 		Boolean respuesta = false;
-		if(this.productos.size()<cantidadDeProductosMaxima) {
+		if(this.productos.size()<cantidadDeProductosMaxima){
 			respuesta = this.productos.add(nuevo);
+			if(!respuesta) {
+				throw new ProductoDuplicadoExeption();
+			}
 		}
-
 			return respuesta;
 	}
 	
-	public Boolean eliminarProducto(String nombre) {
-		return this.productos.removeIf(p -> p.getNombre().equalsIgnoreCase(nombre));
+	public Boolean eliminarProducto(String nombre) throws ProductoNoEncontradoException{
+		/*return this.productos.removeIf(prod -> prod.getNombre().equalsIgnoreCase(nombre));*/
+		for(Producto buscado : this.productos) {
+			if(buscado.getNombre().equalsIgnoreCase(nombre)) {
+				return this.productos.remove(buscado);
+		} 
+		}
+		throw new ProductoNoEncontradoException();
 	}
+	
 
 	public TreeSet<Producto> obtenerInventario() {
 		return this.productos;

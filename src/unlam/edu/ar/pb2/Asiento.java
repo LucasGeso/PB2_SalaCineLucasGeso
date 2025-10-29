@@ -2,7 +2,7 @@ package unlam.edu.ar.pb2;
 
 import java.util.Objects;
 
-public class Asiento {
+public class Asiento{
 	private String nombreComprador;
 	private boolean ocupado;
 		
@@ -12,9 +12,9 @@ public class Asiento {
 	
 	public Asiento(String nombreComprador, boolean estado) {
 		this.nombreComprador = nombreComprador;
-		this.ocupado = estado;
+		this.ocupado = estado;	
 	}
-	
+
 	public String getNombreComprador() {
 		return nombreComprador;
 	}
@@ -49,6 +49,14 @@ public class Asiento {
 		Asiento other = (Asiento) obj;
 		return Objects.equals(nombreComprador, other.nombreComprador) && ocupado == other.ocupado;
 	}
+
+	@Override
+	public String toString() {
+		return "Asiento [ocupado=" + ocupado + "]";
+	}
+
+	
+	
 	
 	
 }

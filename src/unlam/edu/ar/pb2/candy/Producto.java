@@ -30,5 +30,12 @@ public abstract class Producto implements Comparable<Producto>{
 	public int compareTo(Producto o) {
 		return this.stock.compareTo(o.stock);
 	}
+
+	@Override
+	public String toString() {
+		return "Nombre: " + nombre + ", Stock:" + stock + " Precio $" + calcularPrecioFinal();
+	}
+	
+	
 	
 }
