@@ -13,6 +13,7 @@ public class CandyBarTest {
     private Bebida refresco;
     private Bebida agua;
     private Snack papas;
+    private Snack nachos;
 
     // Se ejecuta antes de cada test para inicializar el objeto CandyBar
     @Before
@@ -22,6 +23,7 @@ public class CandyBarTest {
         refresco = new Bebida("Refresco", 3.0, Contenedor.VASO, 15);
         agua = new Bebida("Agua sin gas", 2.0, Contenedor.BOTELLA, 20);
         papas = new Snack("Lays", 10.0, Tamano.GRANDE, 30);
+        nachos = new Snack("Nachos", 7.0, Tamano.MEDIANO, 10);
     }
 
     @Test
@@ -31,6 +33,9 @@ public class CandyBarTest {
 
         assertTrue(candyBar.agregarProducto(refresco));
         assertEquals(2, contarProductosEnInventario());
+        
+        assertTrue(candyBar.agregarProducto(nachos));
+        assertEquals(3, contarProductosEnInventario());
     }
     
     @Test(expected = ProductoDuplicadoExeption.class)

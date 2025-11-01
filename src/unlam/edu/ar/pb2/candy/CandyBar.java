@@ -25,8 +25,8 @@ public class CandyBar {
 			return respuesta;
 	}
 	
+	
 	public Boolean eliminarProducto(String nombre) throws ProductoNoEncontradoException{
-		/*return this.productos.removeIf(prod -> prod.getNombre().equalsIgnoreCase(nombre));*/
 		for(Producto buscado : this.productos) {
 			if(buscado.getNombre().equalsIgnoreCase(nombre)) {
 				return this.productos.remove(buscado);
@@ -35,7 +35,6 @@ public class CandyBar {
 		throw new ProductoNoEncontradoException();
 	}
 	
-
 	public TreeSet<Producto> obtenerInventario() {
 		return this.productos;
 	}
@@ -65,17 +64,3 @@ public class CandyBar {
 
 }
 
-/*Boolean resultado = false;
-for(Producto lista : this.productos){
-	if(lista.getNombre().equalsIgnoreCase(nombre)) {
-		resultado = this.productos.remove(lista);
-	} 
-}
-for(int i=0; i<this.productos.length; i++) {
-	if(this.productos[i]!=null && this.productos[i].getNombre().equalsIgnoreCase(nombre)) {
-		this.productos[i]=null;
-		return true;
-	}
-}
-return false;
-return resultado;*/
