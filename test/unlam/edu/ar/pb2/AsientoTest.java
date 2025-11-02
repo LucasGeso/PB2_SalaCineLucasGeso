@@ -1,55 +1,55 @@
 package unlam.edu.ar.pb2;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-class AsientoTest {
+public class AsientoTest {
 	Asiento asiento1; //ASIENTO LIBRE
 	Asiento asiento2; //ASIENTO OCUPADO
 
-	@BeforeEach
-	void setUp() {
+	@Before
+	public void setUp() {
 		asiento1 = new Asiento();
 		asiento2 = new Asiento("Lucas", true);
 	}
 
 	@Test
-	void queSePuedaCrearUnAsientoCorrectamente() {
+	public void queSePuedaCrearUnAsientoCorrectamente() {
 		assertNotNull(asiento1);
 		assertNotNull(asiento2);
 	}
 	
 	@Test
-	void queSePuedaVerElNombreDelCompradorDelAsiento() {
+	public void queSePuedaVerElNombreDelCompradorDelAsiento() {
 		assertEquals(asiento2.getNombreComprador(), "Lucas");
 	}
 	
 	@Test
-	void queSePuedaVerificarQueUnAsientoEstaOcupado() {
+	public void queSePuedaVerificarQueUnAsientoEstaOcupado() {
 		assertTrue(asiento2.estaOcupado());
 	}
 	
 	@Test
-	void queSePuedaVerificarQueUnAsientoEstaLibre() {
+	public void queSePuedaVerificarQueUnAsientoEstaLibre() {
 		assertFalse(asiento1.estaOcupado());
 	}
 	
 	@Test
-	void queSePuedaLiberarUnAsientoOcupado() {
+	public void queSePuedaLiberarUnAsientoOcupado() {
 		asiento2.liberar();
 		assertFalse(asiento2.estaOcupado());
 	}
 	
 	@Test
-	void queSePuedaOcuparUnAsientoLibre() {
+	public void queSePuedaOcuparUnAsientoLibre() {
 		asiento1.ocupar("Lucas");
 		assertTrue(asiento1.estaOcupado());
 	}
 	
 	@Test
-	void queSePuedanCompararDosAsientosIguales() {
+	public void queSePuedanCompararDosAsientosIguales() {
 		Asiento prueba = new Asiento("Lucas", true);
 		assertEquals(asiento2, prueba);
 	}

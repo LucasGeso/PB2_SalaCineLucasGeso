@@ -53,7 +53,6 @@ public class CandyBarTest {
         Boolean eliminado = candyBar.eliminarProducto("Palomitas");
         assertTrue(eliminado);
         assertEquals(1, contarProductosEnInventario());
-        /*assertNull(candyBar.obtenerInventario()[0]);*/
     }
 
     @Test(expected = ProductoNoEncontradoException.class)
@@ -61,8 +60,6 @@ public class CandyBarTest {
         candyBar.agregarProducto(palomitas);
         candyBar.eliminarProducto("Chocolate");
         assertEquals(1, contarProductosEnInventario());
-        /*Boolean eliminado = candyBar.eliminarProducto("Chocolate");
-        assertFalse(eliminado);*/
     }
 
     @Test
@@ -118,10 +115,3 @@ public class CandyBarTest {
     
 }
 
-/*int count = 0;
-for (Producto p : candyBar.obtenerInventario()) {
-    if (p != null) {
-        count++;
-    }
-}
-return count;*/

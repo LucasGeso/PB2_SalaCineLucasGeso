@@ -1,36 +1,37 @@
 package unlam.edu.ar.pb2;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-class PeliculaTerrorTest {
+import org.junit.Before;
+import org.junit.Test;
 
-	PeliculaTerror peli1;
+public class PeliculaTerrorTest {
 
-	@BeforeEach
-	void setUp(){
+	private PeliculaTerror peli1;
+
+	@Before
+	public void setUp(){
 		peli1 = new PeliculaTerror("El Conjuro", 112, 16);
 	}
 
 	@Test
-	void queSePuedaCrearUnaPeliDeTerrorCorrectamente() {
+	public void queSePuedaCrearUnaPeliDeTerrorCorrectamente() {
 		assertNotNull(peli1);
 	}
 	
 	@Test
-	void queSePuedaObtenerElTituloDeLaPelicula() {
+	public void queSePuedaObtenerElTituloDeLaPelicula() {
 		assertEquals(peli1.getTitulo(), "El Conjuro");
 	}
 
 	@Test
-	void queSePuedaObtenerLaDuracionDeLaPelicula() {
+	public void queSePuedaObtenerLaDuracionDeLaPelicula() {
 		assertEquals(peli1.getDuracion(), 112);
 	}
 	
 	@Test
-	void queSePuedaObtenerLaEdadMinimaParaVerLaPelicula() {
+	public void queSePuedaObtenerLaEdadMinimaParaVerLaPelicula() {
 		assertEquals(peli1.getEdadMinima(), 16);
 	}
 }
