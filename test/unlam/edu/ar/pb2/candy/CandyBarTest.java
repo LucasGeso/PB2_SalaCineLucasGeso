@@ -3,6 +3,8 @@ package unlam.edu.ar.pb2.candy;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -85,7 +87,7 @@ public class CandyBarTest {
         candyBar.agregarProducto(agua);
         candyBar.agregarProducto(papas);
         
-        ArrayList<Producto> listaBebidas = new ArrayList<Producto>();
+        TreeSet<Producto> listaBebidas = new TreeSet<Producto>(new OrdenarPorPrecioBase());
     	listaBebidas.add(agua); // PRECIO BASE 2.0
     	listaBebidas.add(refresco); // PRECIO BASE 3.0
     	
@@ -100,7 +102,7 @@ public class CandyBarTest {
         candyBar.agregarProducto(agua);
         candyBar.agregarProducto(papas);
         
-        ArrayList<Producto> listaSnacks = new ArrayList<Producto>();
+        TreeSet<Producto> listaSnacks = new TreeSet<Producto>(new OrdenarPorNombre());
     	listaSnacks.add(papas); // NOMBRE: LAYS
     	listaSnacks.add(palomitas); // NOMBRE: PALOMITAS
     	

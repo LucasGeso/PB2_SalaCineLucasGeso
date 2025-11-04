@@ -2,6 +2,7 @@ package unlam.edu.ar.pb2.candy;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class MainCandy {
 	
@@ -53,7 +54,7 @@ public class MainCandy {
 	}
 
 	private static void verBebidas(CandyBar candy, Scanner teclado) {
-		ArrayList<Producto> bebidasBuscadas = new ArrayList<Producto>();
+		TreeSet<Producto> bebidasBuscadas = new TreeSet<Producto>(new OrdenarPorPrecioBase());
 		bebidasBuscadas = candy.mostrarLasBebidas();
 		for(Producto buscado : bebidasBuscadas) {
 			System.out.println(buscado);
@@ -61,7 +62,7 @@ public class MainCandy {
 	}
 
 	private static void verSnacks(CandyBar candy, Scanner teclado) {
-		ArrayList<Producto> snacksBuscados = new ArrayList<Producto>();
+		TreeSet<Producto> snacksBuscados = new TreeSet<Producto>(new OrdenarPorNombre());
 		snacksBuscados = candy.mostrarLosSnacks();
 		for(Producto buscado : snacksBuscados) {
 			System.out.println(buscado);

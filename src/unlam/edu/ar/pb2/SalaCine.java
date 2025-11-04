@@ -70,6 +70,7 @@ public class SalaCine {
 		return false;
 	}
 
+
 	
 	public boolean liberarAsiento(String fila, int columna) {
 		String concatenado = fila.toUpperCase()+ "" + columna;

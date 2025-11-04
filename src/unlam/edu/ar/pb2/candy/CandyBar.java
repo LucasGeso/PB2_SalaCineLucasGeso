@@ -39,26 +39,26 @@ public class CandyBar {
 		return this.productos;
 	}
 
-	public ArrayList<Producto> mostrarLasBebidas(){
-		ArrayList<Producto> bebidas = new ArrayList<Producto>();
+	public TreeSet<Producto> mostrarLasBebidas(){
+		TreeSet<Producto> bebidas = new TreeSet<Producto>(new OrdenarPorPrecioBase());
+
 		for(Producto p : this.productos) {
 			if(p instanceof Bebida) {
 				bebidas.add(p);
 			}
 		}
-		Collections.sort(bebidas, new OrdenarPorPrecioBase());
 		
 		return bebidas;
 	}
 	
-	public ArrayList<Producto> mostrarLosSnacks(){
-		ArrayList<Producto> snacks = new ArrayList<Producto>();
+	public TreeSet<Producto> mostrarLosSnacks(){
+		TreeSet<Producto> snacks = new TreeSet<Producto>(new OrdenarPorNombre());
+		
 		for(Producto p : this.productos) {
 			if(p instanceof Snack) {
 				snacks.add(p);
 			}
 		}
-		Collections.sort(snacks, new OrdenarPorNombre());
 		return snacks;
 	}
 
