@@ -64,6 +64,7 @@ public class SalaCine {
 		return venta;
 	}
 	
+	
 	private Boolean butacaOcupada(String concatenado) {
 		if(this.butacas.get(concatenado).estaOcupado()) {
 			return true;

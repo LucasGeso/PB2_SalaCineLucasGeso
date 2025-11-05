@@ -26,7 +26,7 @@ public class CandyBar {
 	
 	public Boolean eliminarProducto(String nombre) throws ProductoNoEncontradoException{
 		for(Producto buscado : this.productos) {
-			if(buscado.getNombre().equalsIgnoreCase(nombre)) {
+			if(buscado.getNombre().equalsIgnoreCase(nombre)) { 
 				return this.productos.remove(buscado);
 		} 
 		}

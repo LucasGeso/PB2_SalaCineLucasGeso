@@ -2,8 +2,7 @@ package unlam.edu.ar.pb2.candy;
 
 import static org.junit.Assert.*;
 
-import java.util.TreeSet;
-
+import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -86,12 +85,14 @@ public class CandyBarTest {
         candyBar.agregarProducto(agua);
         candyBar.agregarProducto(papas);
         
-        TreeSet<Producto> listaBebidas = new TreeSet<Producto>(new OrdenarPorPrecioBase());
+        ArrayList<Producto> listaBebidas = new ArrayList<Producto>();
+        //AGREGO EN ORDEN POR PRECIO BASE
     	listaBebidas.add(agua); // PRECIO BASE 2.0
     	listaBebidas.add(refresco); // PRECIO BASE 3.0
     	
-    	assertEquals(listaBebidas, candyBar.mostrarLasBebidas());
-    	assertEquals(listaBebidas.size(), candyBar.mostrarLasBebidas().size());
+    	ArrayList<Producto> bebidasDelCandy = new ArrayList<Producto>(candyBar.mostrarLasBebidas());
+    	assertEquals(listaBebidas, bebidasDelCandy);
+    	assertEquals(listaBebidas.size(), bebidasDelCandy.size());
     }
     
     @Test
@@ -101,12 +102,15 @@ public class CandyBarTest {
         candyBar.agregarProducto(agua);
         candyBar.agregarProducto(papas);
         
-        TreeSet<Producto> listaSnacks = new TreeSet<Producto>(new OrdenarPorNombre());
+        ArrayList<Producto> listaSnacks = new ArrayList<Producto>();
+        //AGREGO EN ORDEN POR NOMBRE
     	listaSnacks.add(papas); // NOMBRE: LAYS
     	listaSnacks.add(palomitas); // NOMBRE: PALOMITAS
     	
-    	assertEquals(listaSnacks, candyBar.mostrarLosSnacks());
-    	assertEquals(listaSnacks.size(), candyBar.mostrarLosSnacks().size());
+    	ArrayList<Producto> snacksDelCandy = new ArrayList<Producto>(candyBar.mostrarLosSnacks());
+    	
+    	assertEquals(listaSnacks, snacksDelCandy);
+    	assertEquals(listaSnacks.size(), snacksDelCandy.size());
     }
     
 
