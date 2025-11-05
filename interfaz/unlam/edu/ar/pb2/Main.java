@@ -172,19 +172,6 @@ public class Main {
 	        	}
 	        }
 	        
-	       /* for (int j = 0; j < butacas[0].length; j++) {
-	            System.out.printf("%3d", j);
-	        }
-	        System.out.println();
-	        
-	        for (int i = 0; i < butacas.length; i++) {
-	            System.out.printf("%2d ", i);
-	            for (int j = 0; j < butacas[i].length; j++) {
-	                char estado = butacas[i][j].estaOcupado() ? 'X' : 'O';
-	                System.out.printf("%3c", estado);
-	            }
-	            System.out.println();
-	        }*/
 	        System.out.println("O = Libre, X = Ocupado\n");
 			
 		}
@@ -200,8 +187,6 @@ public class Main {
 	        System.out.println("\n🎫 VENTA DE BOLETOS");
 	        System.out.println("Película actual: " + sala.getPeliculaActual().getTitulo());
 	        System.out.println("Edad mínima requerida: " + sala.getPeliculaActual().getEdadMinima() + " años");
-	        
-	     /*   sala.mostrarButacas();*/
 	        
 	        System.out.print("Ingrese el nombre del comprador: ");
 	        scanner.nextLine(); // Limpiar buffer
@@ -230,7 +215,6 @@ public class Main {
 	        mostrarButacas(sala);
 	        
 	        System.out.print("Ingrese la fila del asiento a liberar: ");
-	        /*int fila = scanner.nextInt();*/
 	        String fila = scanner.next();
 	        System.out.print("Ingrese la columna del asiento a liberar: ");
 	        int columna = scanner.nextInt();
@@ -273,14 +257,6 @@ public class Main {
 	    		}
 	    	}
 	    	
-	    	/*Asiento[][] butacas = sala.getButacas();
-	    	for(int i=0;i<butacas.length;i++) {
-	    		for(int j=0;j<butacas[i].length;j++) {
-	    			if(butacas[i][j].estaOcupado()) {
-	    				System.out.println("Fila: "+ i + " Columna: " + j +" - Nombre: " + butacas[i][j].getNombreComprador() + "\n");
-	    			} 
-	    		}
-	    	}*/
 	    	
 	    }
 	    

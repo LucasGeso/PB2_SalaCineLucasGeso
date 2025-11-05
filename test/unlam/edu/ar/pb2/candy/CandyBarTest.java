@@ -2,7 +2,6 @@ package unlam.edu.ar.pb2.candy;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
 import java.util.TreeSet;
 
 import org.junit.Before;

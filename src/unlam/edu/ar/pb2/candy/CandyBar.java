@@ -1,7 +1,5 @@
 package unlam.edu.ar.pb2.candy;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.TreeSet;
 
 public class CandyBar {

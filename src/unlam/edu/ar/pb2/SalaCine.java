@@ -8,6 +8,7 @@ public class SalaCine {
 	private Pelicula pelicula;
 	
 	public SalaCine(Integer cantidadFila, Integer columna) {
+		
 		this.butacas = new TreeMap<String, Asiento>();
 		
 		for(int i=1; i<=cantidadFila;i++) {
