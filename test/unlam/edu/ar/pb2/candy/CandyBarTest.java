@@ -42,7 +42,7 @@ public class CandyBarTest {
     public void testNoAgregarProductosRepetidos() throws ProductoDuplicadoExeption {
     	candyBar.agregarProducto(palomitas);
     	candyBar.agregarProducto(palomitas);
-    	  assertEquals(1, contarProductosEnInventario());
+    	assertEquals(1, contarProductosEnInventario());
     }
 
     @Test
